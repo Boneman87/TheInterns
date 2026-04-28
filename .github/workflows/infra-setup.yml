@@ -19,7 +19,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
-          aws-region: us-east-1 # Change to your region
+          aws-region: eu-central-1 # Updated to Frankfurt
 
       - name: Terraform Setup
         uses: hashicorp/setup-terraform@v3
@@ -28,4 +28,4 @@ jobs:
         run: |
           cd terraform
           terraform init
-          terraform apply -var="github_token=${{ secrets.GH_TOKEN }}" -auto-approve
+          terraform apply -var="gh_token=${{ secrets.GH_TOKEN }}" -auto-approve
