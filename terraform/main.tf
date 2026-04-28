@@ -1,14 +1,3 @@
-# S3 bucket and DynamoDB details for state file. 
-terraform {
-  backend "s3" {
-    bucket         = "theinterns-terraform-state-unique-id"
-    key            = "global/s3/terraform.tfstate"
-    region         = "us-east-1"
-    dynamodb_table = "terraform-state-locking"
-    encrypt        = true
-  }
-}
-
 
 # Configure the AWS Provider
 provider "aws" {
