@@ -1,4 +1,13 @@
-
+# Infrastructure to hold terraform state file
+terraform {
+  backend "s3" {
+    bucket         = "theinterns-terraform-state-001" # Double-check this name!
+    key            = "global/s3/terraform.tfstate"
+    region         = "eu-central-1"
+    dynamodb_table = "terraform-state-locking"
+    encrypt        = true
+  }
+}
 # Configure the AWS Provider
 provider "aws" {
   region = "eu-central-1" 
