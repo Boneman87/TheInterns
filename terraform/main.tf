@@ -44,7 +44,7 @@ resource "aws_instance" "control_node" {
   # Pass the shell script to the instance
   user_data = templatefile("runner-setup.sh", {
     gh_token = var.gh_token,
-    repo_url = "https://github.com"
+    repo_url = "https://github.com/Boneman87/TheInterns"
   })
 
   tags = { Name = "Control-Node-Runner" }
