@@ -36,7 +36,7 @@ resource "aws_iam_instance_profile" "ssm_profile" {
 
 # 3. The Control Node Instance
 resource "aws_instance" "control_node" {
-  ami           = "ami-0abed25eed793978d" # Amazon Ubuntu 24.04 LTS AMI
+  ami           = "ami-0596cf3199908321b" # Amazon Ubuntu 24.04 LTS AMI
   instance_type = "c7i-flex.large"
   subnet_id     = aws_subnet.public.id
   iam_instance_profile = aws_iam_instance_profile.ssm_profile.name
@@ -44,7 +44,7 @@ resource "aws_instance" "control_node" {
   # Pass the shell script to the instance
   user_data = templatefile("runner-setup.sh", {
     gh_token = var.gh_token,
-    repo_url = "https://github.com"
+    repo_url = "https://github.com/Boneman87/TheInterns"
   })
 
   tags = { Name = "Control-Node-Runner" }
