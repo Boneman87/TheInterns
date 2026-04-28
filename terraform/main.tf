@@ -116,5 +116,6 @@ resource "aws_instance" "control_node" {
   })
 
   tags = { Name = "Control-Node-Runner" }
+  user_data_replace_on_change = true # this line causes a new Control-node instance to be launch anytine there is a slight change in the runner-setup.sh file
 }
 
