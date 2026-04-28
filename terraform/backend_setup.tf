@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "terraform_state" {
-  bucket = "theinterns-terraform-state-unique-id" # Reminder: Must be unique!
+  bucket = "theinterns-terraform-state-001" # Reminder: Must be unique!
   lifecycle {
     prevent_destroy = true
   }
