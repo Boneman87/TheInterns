@@ -103,7 +103,7 @@ resource "aws_security_group" "control_node_sg" {
 
 # 9. The Control Node Instance
 resource "aws_instance" "control_node" {
-  ami           = "ami-0596cf3199908321b" # Amazon Ubuntu 24.04 LTS AMI
+  ami           = data.aws_ami.ubuntu_24_04.id # Fetches Amazon Ubuntu 24.04 LTS AMI from data.tf
   instance_type = "c7i-flex.large"
   subnet_id     = aws_subnet.public.id
   iam_instance_profile = aws_iam_instance_profile.ssm_profile.name
